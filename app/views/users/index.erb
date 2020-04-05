@@ -1,3 +1,5 @@
+<% if Helpers.logged_in?(session)
+
 <h1>All Users<h1>
 <br>
 
@@ -6,3 +8,5 @@
 <% end %>
 
 <p class="links"><a href="/users/<%= @user.id %>">My Homepage</a></p>
+
+<% end %>
