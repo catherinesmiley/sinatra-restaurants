@@ -1,17 +1,26 @@
 class UsersController < ApplicationController
 
     get '/signup' do 
-        erb :'/users/signup'
+        if Helpers.logged_in?(session)
+            user = Helpers.current_user(session)
+            redirect to "/users/#{user.id}"
+        else 
+            erb :'/users/signup'
+        end 
     end 
 
     post '/signup' do 
         user = User.create(params)
-        session[:user_id] = user.id
-        redirect to "/users/#{user.id}" 
+        if user.valid?
+            session[:user_id] = user.id
+            redirect to "/users/#{user.id}" 
+        else 
+            redirect to '/signup'
+        end 
     end 
 
     get '/users/:id' do 
         erb :'/users/show'
-    end 	    
+    end 
 
 end 
