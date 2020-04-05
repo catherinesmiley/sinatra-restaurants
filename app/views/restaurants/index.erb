@@ -1,0 +1,9 @@
+<% if Helpers.logged_in?(session) %>
+<h1>All Restaurants</h1>
+<br>
+
+<% @restaurants.each do |restaurant| %>
+    <%= restaurant.name %><br>
+<% end %>
+
+<% end %>
