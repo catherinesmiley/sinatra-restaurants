@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     end 
 
     post '/signup' do 
+        binding.pry 
         user = User.create(params)
         if user.valid?
             session[:user_id] = user.id
@@ -29,17 +30,32 @@ class UsersController < ApplicationController
     end 
 
     post '/login' do 
-        user = Helpers.current_user(session)
-        if user && user.authenticate(params: [:password])
-            session[:user_id] = user.id 
+        user = User.find_by(username: params[:username])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
             redirect to "/users/#{user.id}"
         else 
             redirect to '/'
         end 
-    end 
+    end
+    
+    get '/users' do 
+        if Helpers.logged_in?(session)
+            @users = User.all 
+            @user = Helpers.current_user(session)
+            erb :'/users/index'
+        else 
+            redirect to '/'
+        end 
+    end
 
     get '/users/:id' do 
-        erb :'/users/show'
+        @user = User.find_by(id: params[:id])
+        if Helpers.logged_in?(session) && Helpers.current_user(session) == @user 
+            erb :'/users/show'
+        else 
+            redirect to '/'
+        end 
     end 
 
     get '/logout' do 
