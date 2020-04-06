@@ -37,4 +37,15 @@ class RestaurantsController < ApplicationController
         end 
     end 
 
+    get '/restaurants/:id/edit' do 
+        if !Helpers.logged_in?(session)
+            redirect to '/'
+        end 
+        @restaurant = Restaurant.find_by(id: params[:id])
+        if Helpers.current_user(session) != @restaurant.user
+            redirect to '/restaurants'
+        end 
+        erb :'/restaurants/edit'
+    end 
+
 end 
