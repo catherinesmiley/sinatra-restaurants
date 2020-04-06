@@ -48,4 +48,10 @@ class RestaurantsController < ApplicationController
         erb :'/restaurants/edit'
     end 
 
+    patch '/restaurants/:id' do 
+        restaurant = Restaurant.find_by(id: params[:id])
+        restaurant.update(params[:restaurant])
+        redirect to "/restaurants/#{restaurant.id}"
+    end 
+
 end 

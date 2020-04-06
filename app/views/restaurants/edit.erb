@@ -1,0 +1,15 @@
+<h1>Edit Restaurant</h1>
+<br>
+<form action="/restaurants/<%= @restaurant.id %>" method="POST">
+    <input type="hidden" name="_method" value="patch">
+    <h3><label>Name: </label></h3>
+    <input type="text" name="restaurant[name]" value="<%= @restaurant.name %>"/><br />
+    <h3><label>City: </label></h3>
+    <input type="text" name="restaurant[city]" value="<%= @restaurant.city %>"/><br />
+    <h3><label>Category: </label></h3>
+    <input type="text" name="restaurant[category]" value="<%= @restaurant.category %>"/><br />
+    <h3><label>Notes: </label></h3>
+    <input type="text" name="restaurant[notes]" value="<%= @restaurant.notes %>" /><br />
+    <br>
+    <button type="submit">Edit Restaurant</button>
+</form>
