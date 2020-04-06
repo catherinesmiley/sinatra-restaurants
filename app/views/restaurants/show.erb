@@ -3,3 +3,7 @@
 <p>City: <%= @restaurant.city %></p>
 <p>Category: <%= @restaurant.category %></p>
 <p>Notes: <%= @restaurant.notes %></p>
+
+<% if Helpers.current_user(session) == @restaurant.user %>
+    <a href="/restaurants/<%= @restaurant.id %>/edit">Edit Restaurant</a>
+<% end %>
