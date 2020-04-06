@@ -12,9 +12,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
+   
   </head>
   <body>
     <div class="wrapper">
+      <% if Helpers.logged_in?(session) %>
+        <p class="links"><a href="/logout" class="logout">Log Out</a></p>
+        <p class="links"><a href="/users/<%=Helpers.current_user(session).id if Helpers.logged_in?(session) %>">My Homepage</a></p>
+        <p class="links"><a href="/restaurants/new">New Restaurant</a></p>
+        <p class="links"><a href="/restaurants">All Restaurants</a></p>
+        <p class="links"><a href="/users">All Users</a></p>
+      <% end %>
 
         <%= yield %>
 

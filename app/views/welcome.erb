@@ -4,8 +4,5 @@
     <% if !Helpers.logged_in?(session) %>
       <p class="links"><a href="/signup">Sign Up</a></p>
       <p class="links"><a href="/login">Log In</a></p>
-    <% else %>
-      <p class="links"><a href="/users/<%= @user.id %>">My Homepage</a></p>
-      <p class="links"><a href="/logout">Log Out</a></p>
-    <% end %>
+    <% end  %>
 </div>
