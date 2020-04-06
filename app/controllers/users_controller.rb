@@ -50,6 +50,7 @@ class UsersController < ApplicationController
 
     get '/users/:id' do 
         @user = User.find_by(id: params[:id])
+        @restaurants = @user.restaurants
         if Helpers.logged_in?(session) && Helpers.current_user(session) == @user 
             erb :'/users/show'
         else 
