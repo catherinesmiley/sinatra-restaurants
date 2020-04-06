@@ -25,4 +25,13 @@ class RestaurantsController < ApplicationController
         end 
     end 
 
+    get '/restaurants/:id' do 
+        @restaurant = Restaurant.find_by(id: params[:id])
+        if @restaurant && Helpers.logged_in?(session)
+            erb :'/restaurants/show'
+        else 
+            redirect to '/'
+        end 
+    end 
+
 end 
