@@ -69,6 +69,4 @@ class RestaurantsController < ApplicationController
         redirect to '/restaurants'
     end 
 
-    end 
-
 end 
