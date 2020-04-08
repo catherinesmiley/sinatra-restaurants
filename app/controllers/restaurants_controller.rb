@@ -10,7 +10,13 @@ class RestaurantsController < ApplicationController
     end 
 
     post '/restaurants' do 
-        restaurant = Restaurant.create(params)
+        restaurant = Restaurant.create(params[:restaurant])
+        menu_items = params[:menu_items]
+        menu_items.each do |item|
+            menu_item = MenuItem.create(item)
+            menu_item.restaurant = restaurant
+            menu_item.save
+        end 
         user = Helpers.current_user(session)
         restaurant.user = user 
         restaurant.save 

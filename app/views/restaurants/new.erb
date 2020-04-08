@@ -2,13 +2,21 @@
 <br>
 <form action="/restaurants" method="POST">
     <h3><label>Name: </label></h3>
-    <input type="text" name="name" /><br />
+    <input type="text" name="restaurant[name]" /><br />
     <h3><label>City: </label></h3>
-    <input type="text" name="city" /><br />
+    <input type="text" name="restaurant[city]" /><br />
     <h3><label>Category: </label></h3>
-    <input type="text" name="category" /><br />
+    <input type="text" name="restaurant[category]" /><br />
+    <h3><label>Menu Item 1: </label></h3>
+    <input type="text" name="menu_items[][name]" /><br />
+    <h3><label>Menu Item Description 1: </label></h3>
+    <input type="text" name="menu_items[][description]" /><br />
+    <h3><label>Menu Item 2: </label></h3>
+    <input type="text" name="menu_items[][name]" /><br />
+    <h3><label>Menu Item Description 2: </label></h3>
+    <input type="text" name="menu_items[][description]" /><br />
     <h3><label>Notes: </label></h3>
-    <input type="text" name="notes" /><br />
+    <input type="text" name="restaurant[notes]" /><br />
     <br>
     <button type="submit">Add Restaurant</button>
 </form>
