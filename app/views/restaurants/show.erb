@@ -2,6 +2,10 @@
 <br>
 <p>City: <%= @restaurant.city %></p>
 <p>Category: <%= @restaurant.category %></p>
+<p>Menu Item 1: <%= @menu_items[0]["name"] %></p>
+<p>Menu Item Description 1: <%= @menu_items[0]["description"] %></p>
+<p>Menu Item 2: <%= @menu_items[1]["name"] %></p>
+<p>Menu Item Description 1: <%= @menu_items[1]["description"] %></p>
 <p>Notes: <%= @restaurant.notes %></p>
 
 <% if Helpers.current_user(session) == @restaurant.user %>

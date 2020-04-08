@@ -36,6 +36,7 @@ class RestaurantsController < ApplicationController
             redirect to '/'
         end 
         @restaurant = Restaurant.find_by(id: params[:id])
+        @menu_items = @restaurant.menu_items
         if @restaurant
             erb :'/restaurants/show'
         else 
