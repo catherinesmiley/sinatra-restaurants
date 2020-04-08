@@ -9,13 +9,13 @@
     <h3><label>Category: </label></h3>
     <input type="text" name="restaurant[category]" value="<%= @restaurant.category %>"/><br />
     <h3><label>Menu Item 1: </label></h3>
-    <input type="text" name="menu_items[][name]"><br />
+    <input type="text" name="menu_items[][name]" value="<%= @menu_items[0]["name"] %>"/><br />
     <h3><label>Menu Item Description 1: </label></h3>
-    <input type="text" name="menu_items[][description]"><br />
-    <h3><label>Menu Item 2: </label></h3>m
-    <input type="text" name="menu_items[][name]"><br />
+    <input type="text" name="menu_items[][description]" value="<%= @menu_items[0]["description"] %>"/><br />
+    <h3><label>Menu Item 2: </label></h3>
+    <input type="text" name="menu_items[][name]" value="<%= @menu_items[1]["name"] %>"/><br />
     <h3><label>Menu Item Description 2: </label></h3>
-    <input type="text" name="menu_items[][description]"><br />
+    <input type="text" name="menu_items[][description]" value="<%= @menu_items[0]["description"] %>"/><br />
     <h3><label>Notes: </label></h3>
     <input type="text" name="restaurant[notes]" value="<%= @restaurant.notes %>" /><br />
     <br>

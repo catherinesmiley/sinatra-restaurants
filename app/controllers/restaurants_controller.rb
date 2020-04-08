@@ -49,6 +49,7 @@ class RestaurantsController < ApplicationController
             redirect to '/'
         end 
         @restaurant = Restaurant.find_by(id: params[:id])
+        @menu_items = @restaurant.menu_items
         if !@restaurant || Helpers.current_user(session) != @restaurant.user
             redirect to '/restaurants'
         end 
