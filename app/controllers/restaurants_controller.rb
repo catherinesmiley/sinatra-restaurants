@@ -59,6 +59,10 @@ class RestaurantsController < ApplicationController
     patch '/restaurants/:id' do 
         restaurant = Restaurant.find_by(id: params[:id])
         if restaurant && restaurant.user == Helpers.current_user(session)
+            params[:menu_items].each do |item|
+                i = MenuItem.find_by(id: item["id"])
+                i.update(name: item["name"], description: item["description"])
+            end 
             restaurant.update(params[:restaurant])
             redirect to "/restaurants/#{restaurant.id}"
         else 

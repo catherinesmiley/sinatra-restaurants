@@ -10,10 +10,12 @@
     <input type="text" name="restaurant[category]" value="<%= @restaurant.category %>"/><br />
     <h3><label>Menu Item 1: </label></h3>
     <input type="text" name="menu_items[][name]" value="<%= @menu_items[0]["name"] %>"/><br />
+    <input type="hidden" name="menu_items[][id]" value="<%= @menu_items[0]["id"] %>"/>
     <h3><label>Menu Item Description 1: </label></h3>
     <input type="text" name="menu_items[][description]" value="<%= @menu_items[0]["description"] %>"/><br />
     <h3><label>Menu Item 2: </label></h3>
     <input type="text" name="menu_items[][name]" value="<%= @menu_items[1]["name"] %>"/><br />
+    <input type="hidden" name="menu_items[][id]" value="<%= @menu_items[1]["id"] %>"/>
     <h3><label>Menu Item Description 2: </label></h3>
     <input type="text" name="menu_items[][description]" value="<%= @menu_items[0]["description"] %>"/><br />
     <h3><label>Notes: </label></h3>
