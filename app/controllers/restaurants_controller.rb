@@ -61,7 +61,13 @@ class RestaurantsController < ApplicationController
         if restaurant && restaurant.user == Helpers.current_user(session)
             params[:menu_items].each do |item|
                 i = MenuItem.find_by(id: item["id"])
-                i.update(name: item["name"], description: item["description"])
+                if i 
+                    i.update(name: item["name"], description: item["description"])
+                else 
+                    i = MenuItem.create(name: item["name"], description: item["description"])
+                    i.restaurant = restaurant
+                    i.save
+                end 
             end 
             restaurant.update(params[:restaurant])
             redirect to "/restaurants/#{restaurant.id}"
