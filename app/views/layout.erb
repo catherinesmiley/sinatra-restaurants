@@ -13,15 +13,32 @@
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
    
+<style>
+
+  .nav {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+</style>
+
   </head>
   <body>
-    <div class="wrapper">
+    <ul class="nav">
       <% if Helpers.logged_in?(session) %>
-        <p class="links"><a href="/logout" class="logout">Log Out</a></p>
-        <p class="links"><a href="/users/<%=Helpers.current_user(session).id if Helpers.logged_in?(session) %>">My Homepage</a></p>
-        <p class="links"><a href="/restaurants/new">New Restaurant</a></p>
-        <p class="links"><a href="/restaurants">All Restaurants</a></p>
-        <p class="links"><a href="/users">All Users</a></p>
+        <li><a href="/logout" class="logout">Log Out</a></li>
+        <li><a href="/users/<%=Helpers.current_user(session).id if Helpers.logged_in?(session) %>">My Homepage</a></li>
+        <li><a href="/restaurants/new">New Restaurant</a></li>
+        <li><a href="/restaurants">All Restaurants</a></li>
+        <li><a href="/users">All Users</a></li>
       <% end %>
 
         <%= yield %>
