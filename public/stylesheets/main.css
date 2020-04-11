@@ -3,12 +3,12 @@
  
  body {
     background-color: #FFFF7F;
-    font-family: "Sacramento";
+    font-family: sans-serif;
     line-height: 18px;
   }
 
   h1 {
-    font-family: "Sacramento";
+    font-family: sans-serif;
     font-size: 36px;
     line-height: 54px;
   }
