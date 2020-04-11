@@ -9,7 +9,7 @@
 <p>Notes: <%= @restaurant.notes %></p>
 
 <% if Helpers.current_user(session) == @restaurant.user %>
-    <a href="/restaurants/<%= @restaurant.id %>/edit">Edit Restaurant</a>
+    <a href="/restaurants/<%= @restaurant.id %>/edit">Edit Restaurant</a><br><br>
 <form action="/restaurants/<%= @restaurant.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <button type="submit">Delete Restaurant</button>
