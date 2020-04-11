@@ -34,11 +34,11 @@
   <body>
     <ul class="nav">
       <% if Helpers.logged_in?(session) %>
-        <li><a href="/logout" class="logout">Log Out</a></li>
         <li><a href="/users/<%=Helpers.current_user(session).id if Helpers.logged_in?(session) %>">My Homepage</a></li>
         <li><a href="/restaurants/new">New Restaurant</a></li>
         <li><a href="/restaurants">All Restaurants</a></li>
         <li><a href="/users">All Users</a></li>
+        <li><a href="/logout" class="logout">Log Out</a></li>
       <% end %>
 
         <%= yield %>
