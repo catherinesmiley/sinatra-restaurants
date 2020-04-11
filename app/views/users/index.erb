@@ -4,7 +4,7 @@
 <br>
 
 <% @users.each do |user| %>
-    <%= user.username %><br>
+    <a href="/users/<%= user.id %>"> <%= user.username %></a><br>
 <% end %>
 
 <% end %>
