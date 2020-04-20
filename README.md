@@ -4,7 +4,7 @@ This is a CRUD MVC app that was built using the Sinatra gem in Ruby that allows 
 
 Installation
 
-Install this gem by typing the below into your terminal:
+Install this app by typing the below into your terminal:
 
 $ gem install sinatra-restaurants
 
