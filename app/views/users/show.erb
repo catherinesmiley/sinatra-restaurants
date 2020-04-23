@@ -1,6 +1,10 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 <img src="../images/open.jpeg" width="450" height="auto" alt="open image" ></img>
+<% if !@user.restaurants.empty? %>
 <p>Here are all of your saved restaurants:</p>
+<% else %>
+<p>Click the New Restaurant link to save a new restaurant to your homepage!</p>
+<% end %>
 
 <ul>
 <% @restaurants.each do |restaurant| %>
